@@ -1,14 +1,17 @@
 # cli-chat-tool
-Introduction
+Introduction:-
+
 Python is a great programming language for computer networking. It allows us to create solid applications very fast and easily. In this tutorial, we are going to implement a fully-functioning TCP chat. We will have one server that hosts the chat and multiple clients that connect to it and communicate with each other. At the end, you can also add custom features like chat rooms, commands, roles etc., if you want to.
 
 Client-Server Architecture
+
 For our application, we will use the client-server architecture. This means that we will have multiple clients (the users) and one central server that hosts everything and provides the data for these clients.
 
 
 Therefore, we will need to write two Python scripts. One will be for starting the server and one will be for the client. We will have to run the server first, so that there is a chat, which the clients can connect to. The clients themselves, are not going to directly communicate to each other but via the central server.
 
 Implementing The Server
+
 Now let’s start by implementing the server first. For this we will need to import two libraries, namely socket and threading. The first one will be used for the network connection and the second one is necessary for performing various tasks at the same time.
 
 import socket
@@ -85,7 +88,10 @@ When we are ready to run our server, we will execute this receive function. It a
 Notice that we are always encoding and decoding the messages here. The reason for this is that we can only send bytes and not strings. So we always need to encode messages (for example using ASCII), when we send them and decode them, when we receive them.
 
 receive()
+
+
 Implementing The Client
+
 A server is pretty useless without clients that connect to it. So now we are going to implement our client. For this, we will again need to import the same libraries. Notice that this is now a second separate script.
 
 import socket
