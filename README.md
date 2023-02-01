@@ -35,6 +35,7 @@ When we define our socket, we need to pass two parameters. These define the type
 After defining the socket, we bind it to our host and the specified port by passing a tuple that contains both values. We then put our server into listening mode, so that it waits for clients to connect. At the end we create two empty lists, which we will use to store the connected clients and their nicknames later on.
 
 # Sending Messages To All Connected Clients
+
 def broadcast(message):
     for client in clients:
         client.send(message)
@@ -43,6 +44,7 @@ Here we define a little function that is going to help us broadcasting messages 
 Now we will start with the implementation of the first major function. This function will be responsible for handling messages from the clients.
 
 # Handling Messages From Clients
+
 def handle(client):
     while True:
         try:
@@ -63,6 +65,7 @@ As you can see, this function is running in a while-loop. It won’t stop unless
 What it then does is receiving the message from the client (if he sends any) and broadcasting it to all connected clients. So when one client sends a message, everyone else can see this message. Now if for some reason there is an error with the connection to this client, we remove it and its nickname, close the connection and broadcast that this client has left the chat. After that we break the loop and this thread comes to an end. Quite simple. We are almost done with the server but we need one final function.
 
 # Receiving / Listening Function
+
 def receive():
     while True:
         # Accept Connection
